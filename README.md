@@ -21,7 +21,7 @@
 PHP 8.0 이상(`mysqli`·`gd` 확장), MySQL 또는 MariaDB, git 이 있으면 됩니다. XAMPP 를 쓰고 있다면 MySQL 만 켜 두면 됩니다.
 
 ```bash
-git clone <이 저장소 주소> gnuboard5-m3-themes
+git clone https://github.com/lee0508/gnuboard5-m3-themes.git
 cd gnuboard5-m3-themes
 php demo/setup.php
 php -S localhost:8000 -t demo/site
