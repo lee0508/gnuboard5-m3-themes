@@ -1,0 +1,168 @@
+/* 다판다 쇼핑몰 커스텀 스타일 - 50~60대 고객 기준(큰 글씨, 높은 대비, 큰 버튼)
+   색·글꼴·모서리는 m3-tokens.css 의 M3 토큰만 쓴다 (공통 디자인 규칙 10장, 2026-11-01).
+   대표색 남색 = primary-container, 강조색 주황 = tertiary 계열, 어두운 바탕 위 강조 = *-fixed-dim */
+
+/* ===== 기본 서체 : Pretendard ===== */
+body,
+input, select, textarea, button, table {
+    font-family: var(--md-ref-typeface-plain) !important;
+}
+
+/* 기본 글자 크기를 12px -> 16px 기준으로 상향 */
+body {font-size: 1em; color: var(--md-sys-color-on-surface); line-height: 1.6}
+
+a {color: var(--md-sys-color-on-surface)}
+a:hover, a:focus {color: var(--md-sys-color-primary-container); text-decoration: underline}
+
+/* ===== 로고 (텍스트 로고) : 헤더 바탕이 어두우므로 밝은 글자 ===== */
+#logo {padding-top: 22px}
+.dapanda_logo {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 34px; font-weight: 800; color: var(--md-sys-color-inverse-on-surface) !important;
+    letter-spacing: -1px; text-decoration: none !important;
+}
+.dapanda_logo .bx, .dapanda_logo .bxs {font-size: 40px; color: var(--md-sys-color-tertiary-fixed-dim)}
+.dapanda_logo:hover {color: var(--md-sys-color-primary-fixed-dim) !important}
+
+/* ===== 최상단 유틸 바 (참조: ety_theme_company) ===== */
+#tnb {background: var(--md-sys-color-primary); border-bottom: 0}
+#tnb .inner {font-size: 15px}
+#tnb_sns {float: left; list-style: none; margin: 0; padding: 0}
+#tnb_sns li {float: left}
+#tnb_sns a {display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--md-sys-color-inverse-on-surface); font-size: 18px}
+#tnb_sns a:hover, #tnb_sns a:focus {color: var(--md-sys-color-tertiary-fixed-dim); text-decoration: none}
+#tnb_util {float: right; list-style: none; margin: 0; padding: 0}
+#tnb_util:after {display: block; visibility: hidden; clear: both; content: ""}
+#tnb_util li {float: left; line-height: 44px; margin-left: 20px; font-size: 15px; color: var(--md-sys-color-inverse-on-surface)}
+#tnb_util li a {color: var(--md-sys-color-inverse-on-surface)}
+#tnb_util li a:hover, #tnb_util li a:focus {color: var(--md-sys-color-tertiary-fixed-dim); text-decoration: none}
+#tnb_util .visit-num {
+    display: inline-block; min-width: 20px; text-align: center; line-height: 20px;
+    background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);
+    border-radius: var(--md-sys-shape-corner-full); font-size: 12px;
+    padding: 0 6px; margin-left: 2px; vertical-align: middle;
+}
+#tnb_util .tnb_hello b {color: var(--md-sys-color-tertiary-fixed-dim); font-weight: 700}
+#tnb_util a.tnb_point {color: var(--md-sys-color-tertiary-fixed-dim); font-weight: 700}
+#tnb_util a.tnb_admin {color: var(--md-sys-color-error-container); font-weight: 700}
+#tnb_util .bx, #tnb_util .bxs, #tnb_sns .bxl {vertical-align: -2px}
+
+/* ===== 검색창 : 크고 명확하게 ===== */
+#hd_sch {border: 3px solid var(--md-sys-color-primary-container); border-radius: var(--md-sys-shape-corner-small)}
+#hd_sch #sch_str {
+    height: 52px; font-size: 19px; padding: 0 16px; width: 320px;
+}
+#hd_sch #sch_submit {height: 52px; width: 60px; font-size: 24px; background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary)}
+
+/* ===== 메인 메뉴 : 큰 글씨 + 높은 대비 ===== */
+#hd_menu {background: var(--md-sys-color-primary-container)}
+#hd_menu button#menu_open {
+    background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container);
+    font-size: 19px; font-weight: 700; height: 58px;
+}
+.hd_menu li {padding: 15px 0; line-height: 28px}
+.hd_menu li a {
+    font-size: 19px; font-weight: 700; color: var(--md-sys-color-on-primary); border-right: 1px solid rgba(255,255,255,.25);
+}
+.hd_menu li a:hover, .hd_menu li a:focus {color: var(--md-sys-color-tertiary-fixed-dim); text-decoration: none}
+
+/* 카테고리 펼침 메뉴 */
+#category li a {font-size: 17px; padding: 12px 20px}
+
+/* ===== 상품 목록 : 상품명/가격 크게 ===== */
+.sct .sct_txt, .sct_txt {font-size: 18px !important; font-weight: 500; line-height: 1.5}
+.sct .sct_txt a, .sct_txt a {color: var(--md-sys-color-on-surface)}
+.sct .sct_basic, .sct_basic {font-size: 15px; color: var(--md-sys-color-on-surface-variant)}
+.sct .sct_cost, .sct_cost {font-size: 21px !important; font-weight: 800; color: var(--md-sys-color-tertiary)}
+.sct .sct_cust, .sct_cust {font-size: 15px; color: var(--md-sys-color-on-surface-variant); text-decoration: line-through}
+
+/* 사이드 인기상품 : 좁은 영역이므로 글자 크기 축소 */
+#side_pd .sct_txt {font-size: 15px !important; line-height: 1.4}
+#side_pd .sct_cost {font-size: 17px !important}
+#side_pd li {overflow: hidden; margin-bottom: 12px}
+
+/* 메인 섹션 제목 */
+.sct_wrap header h2, .sct_wrap h2 {font-size: 26px; font-weight: 800; color: var(--md-sys-color-primary-container)}
+.sct_wrap header h2 a {color: var(--md-sys-color-primary-container)}
+#side_pd h2 {font-size: 20px; font-weight: 700}
+#side_pd h2 a {color: var(--md-sys-color-primary-container)}
+
+/* ===== 상품 상세 ===== */
+#sit_title {font-size: 28px; font-weight: 800; line-height: 1.4}
+#sit_desc {font-size: 17px; color: var(--md-sys-color-on-surface-variant)}
+#sit_ov th, #sit_ov td {font-size: 17px; padding: 10px 8px}
+.tbl_frm01 th, .tbl_frm01 td {font-size: 16px}
+#sit_tot_price {font-size: 24px; font-weight: 800; color: var(--md-sys-color-tertiary)}
+
+/* ===== 버튼 : 크고 누르기 쉽게, M3 알약형 ===== */
+.btn_submit, .btn01, .btn02,
+button.btn_submit, a.btn01, a.btn02 {
+    min-height: 50px; font-size: 18px !important; font-weight: 700;
+    border-radius: var(--md-sys-shape-corner-full); padding: 12px 24px;
+}
+#sit_ov_btn .btn_submit, #sit_ov_btn button {
+    height: 60px; font-size: 20px !important; font-weight: 800;
+}
+#sit_ov_btn .btn_submit {background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container)}
+#sit_ov_btn .btn_submit:hover {background: var(--md-sys-color-tertiary)}
+
+/* ===== 게시판/폼 ===== */
+.tbl_head01 th, .tbl_head01 td {font-size: 16px; padding: 12px 8px}
+.frm_input {height: 48px; font-size: 17px; border-radius: var(--md-sys-shape-corner-extra-small)}
+
+/* ===== 하단 ===== */
+/* 기본 테마 하단은 어두운 바탕(#212020)이라 밝은 글자 */
+#ft {font-size: 15px; line-height: 1.8; color: var(--md-sys-color-inverse-on-surface)}
+#ft_company, #ft .ft_info {font-size: 15px}
+#ft h2, #ft b, #ft span, #ft a, #ft_copy, #ft .empty_li {color: var(--md-sys-color-inverse-on-surface) !important}
+
+/* ===== 사이드 퀵메뉴 ===== */
+#quick .btn_sm {font-size: 14px}
+#quick .qk_tit {font-size: 13px}
+
+/* 항목이 늘어도 세로 중앙을 유지하도록 고정 오프셋 대신 transform 사용 */
+#quick {margin-top: 0 !important; transform: translateY(-50%)}
+
+/* 고객 메뉴 직접 링크 (상단 유틸에서 이동) */
+#quick .qk_divider {height: 1px; margin: 6px 10px; background: var(--md-sys-color-outline-variant)}
+#quick .qk_link a {
+    display: flex; align-items: center; justify-content: center;
+    width: 50px; height: 48px; background: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-primary-container);
+    font-size: 21px; text-decoration: none !important;
+}
+#quick .qk_link a:hover, #quick .qk_link a:focus {color: var(--md-sys-color-tertiary); background: var(--md-sys-color-surface-container)}
+#quick .qk_link .qk_tit {
+    display: none; position: absolute; top: 8px; right: 60px; white-space: pre;
+    padding: 0 15px; line-height: 30px; background: var(--md-sys-color-inverse-surface); color: var(--md-sys-color-inverse-on-surface);
+    font-size: 13px; border-radius: var(--md-sys-shape-corner-extra-small);
+}
+#quick .qk_link:hover .qk_tit {display: block}
+
+/* 사이드 바 접기/펼치기 토글 */
+#side_menu {transition: transform .3s ease}
+#side_menu.sm_closed {transform: translateX(100%); box-shadow: none}
+#side_toggle {
+    position: absolute; left: -36px; top: 50%; transform: translateY(-50%);
+    width: 36px; padding: 14px 0; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-primary-container);
+    border: 1px solid var(--md-sys-color-outline-variant); border-right: 0;
+    border-radius: var(--md-sys-shape-corner-small) 0 0 var(--md-sys-shape-corner-small);
+    box-shadow: -2px 0 6px rgba(0,0,0,.07);
+}
+#side_toggle span {writing-mode: vertical-rl; font-size: 14px; font-weight: 700; letter-spacing: 2px}
+#side_toggle .bx {font-size: 18px}
+#side_toggle:hover, #side_toggle:focus {color: var(--md-sys-color-tertiary)}
+@media (prefers-reduced-motion: reduce) {
+    #side_menu {transition: none}
+}
+
+/* ===== 그누보드 기본 상품 스킨 덮어쓰기 : 글자 대비 4.5:1 (공통 디자인 규칙 3장) =====
+   기본 스킨의 설명·정가 회색(3.2~3.8:1)과 흰 글자 상품 배지(1.7~4.4:1)가 기준에 못 미쳐 토큰 색으로 바꾼다 */
+#wrapper .sct_basic, #wrapper .sct_dict {color: var(--md-sys-color-on-surface-variant)}
+#wrapper .shop_icon {font-weight: 700}
+#wrapper .shop_icon_1 {background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary)}                     /* 히트 */
+#wrapper .shop_icon_2 {background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container)} /* 추천 */
+#wrapper .shop_icon_3 {background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container)} /* 최신 */
+#wrapper .shop_icon_4 {background: var(--md-sys-color-primary-fixed); color: var(--md-sys-color-on-primary-fixed)}         /* 인기 */
+#wrapper .shop_icon_5 {background: var(--md-sys-color-error); color: var(--md-sys-color-on-error)}                         /* 할인 */

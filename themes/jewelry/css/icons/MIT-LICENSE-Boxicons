@@ -1,0 +1,8 @@
+Boxicons v3 (https://github.com/box-icons/boxicons-core) — License: MIT
+  https://github.com/box-icons/boxicons-core/blob/main/LICENSE
+Boxicons v2.1.4 (https://github.com/box-icons/boxicons) — License: MIT (브랜드 로고 bxl-* 만 사용)
+  https://github.com/box-icons/boxicons/blob/master/LICENSE
+
+boxicons-local.css 의 아이콘 모양은 위 저장소의 아이콘을
+npm @iconify-json/boxicons 1.2.0(v3)과 @iconify-json/bx 1.2.3(v2)에서 가져와 CSS mask 로 넣은 것이다.
+브랜드 로고(페이스북·인스타그램·트위터)의 상표권은 각 회사에 있다.

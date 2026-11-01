@@ -1,0 +1,301 @@
+/* 다있다 주얼리 커스텀 스타일 - 50~60대 기준(큰 글씨·고대비·큰 버튼) + 주얼리몰 감성(화이트·골드·차콜)
+   색·글꼴·모서리는 m3-tokens.css 의 M3 토큰만 쓴다 (공통 디자인 규칙 10장, 2026-11-01).
+   대표색 골드(#b08d57) = primary-container. 흰 글자를 얹는 버튼은 대비 4.5:1 을 위해 더 진한 primary 를 쓴다(골드 위 흰 글자는 3.0:1).
+   차콜 바탕 = inverse-surface, 어두운 바탕 위 골드 글자 = primary-fixed-dim.
+   금속 색 미리보기(.chip_*)는 실제 금속 색을 보여 주는 자료라 hex 그대로 둔다. */
+
+/* ===== 기본 서체 : Pretendard ===== */
+body,
+input, select, textarea, button, table {
+    font-family: var(--md-ref-typeface-plain) !important;
+}
+
+/* 기본 글자 크기를 12px -> 16px 기준으로 상향 */
+body {font-size: 1em; color: var(--md-sys-color-on-surface); line-height: 1.65; background: var(--md-sys-color-surface-container-lowest)}
+
+a {color: var(--md-sys-color-on-surface)}
+a:hover, a:focus {color: var(--md-sys-color-primary); text-decoration: underline}
+
+/* ===== 로고 (텍스트 로고) : 헤더 바탕이 어두우므로 밝은 글자 ===== */
+#logo {padding-top: 22px}
+.daitda_logo {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 32px; font-weight: 800; color: var(--md-sys-color-inverse-on-surface) !important;
+    letter-spacing: -0.5px; text-decoration: none !important;
+}
+.daitda_logo .bx, .daitda_logo .bxs {font-size: 38px; color: var(--md-sys-color-primary-fixed-dim)}
+.daitda_logo:hover span {color: var(--md-sys-color-primary-fixed-dim)}
+
+/* ===== 최상단 유틸 바 (참조: ety_theme_company) ===== */
+#tnb {background: var(--md-sys-color-inverse-surface); border-bottom: 0}
+#tnb .inner {font-size: 15px}
+#tnb_sns {float: left; list-style: none; margin: 0; padding: 0}
+#tnb_sns li {float: left}
+#tnb_sns a {display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--md-sys-color-inverse-on-surface); font-size: 18px}
+#tnb_sns a:hover, #tnb_sns a:focus {color: var(--md-sys-color-primary-fixed-dim); text-decoration: none}
+#tnb_util {float: right; list-style: none; margin: 0; padding: 0}
+#tnb_util:after {display: block; visibility: hidden; clear: both; content: ""}
+#tnb_util li {float: left; line-height: 44px; margin-left: 20px; font-size: 15px; color: var(--md-sys-color-inverse-on-surface)}
+#tnb_util li a {color: var(--md-sys-color-inverse-on-surface)}
+#tnb_util li a:hover, #tnb_util li a:focus {color: var(--md-sys-color-primary-fixed-dim); text-decoration: none}
+#tnb_util .visit-num {
+    display: inline-block; min-width: 20px; text-align: center; line-height: 20px;
+    background: var(--md-sys-color-primary-fixed-dim); color: var(--md-sys-color-on-primary-fixed);
+    border-radius: var(--md-sys-shape-corner-full); font-size: 12px;
+    padding: 0 6px; margin-left: 2px; vertical-align: middle;
+}
+#tnb_util .tnb_hello b {color: var(--md-sys-color-primary-fixed-dim); font-weight: 700}
+#tnb_util a.tnb_point {color: var(--md-sys-color-primary-fixed-dim); font-weight: 700}
+#tnb_util a.tnb_admin {color: var(--md-sys-color-error-container); font-weight: 700}
+#tnb_util .bx, #tnb_util .bxs, #tnb_sns .bxl {vertical-align: -2px}
+
+/* ===== 검색창 : 크고 명확하게 ===== */
+#hd_sch {border: 3px solid var(--md-sys-color-primary-container); border-radius: var(--md-sys-shape-corner-small)}
+#hd_sch #sch_str {height: 52px; font-size: 19px; padding: 0 16px; width: 320px}
+#hd_sch #sch_submit {height: 52px; width: 60px; font-size: 24px; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary)}
+
+/* ===== 메인 메뉴 : 차콜 배경 + 골드 포인트, 큰 글씨 ===== */
+#hd_menu {background: var(--md-sys-color-inverse-surface)}
+#hd_menu button#menu_open {
+    background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary);
+    font-size: 19px; font-weight: 700; height: 58px;
+}
+.hd_menu li {padding: 15px 0; line-height: 28px}
+.hd_menu li a {
+    font-size: 19px; font-weight: 700; color: var(--md-sys-color-inverse-on-surface); border-right: 1px solid rgba(255,255,255,.18);
+}
+.hd_menu li a:hover, .hd_menu li a:focus {color: var(--md-sys-color-primary-fixed-dim); text-decoration: none}
+
+/* 카테고리 펼침 메뉴 */
+#category li a {font-size: 17px; padding: 12px 20px}
+
+/* ===== 상품 목록 : 상품명/가격 크게 ===== */
+.sct .sct_txt, .sct_txt {font-size: 18px !important; font-weight: 500; line-height: 1.5}
+.sct .sct_txt a, .sct_txt a {color: var(--md-sys-color-on-surface)}
+.sct .sct_basic, .sct_basic {font-size: 15px; color: var(--md-sys-color-on-surface-variant)}
+.sct .sct_cost, .sct_cost {font-size: 21px !important; font-weight: 800; color: var(--md-sys-color-primary)}
+.sct .sct_cust, .sct_cust {font-size: 15px; color: var(--md-sys-color-on-surface-variant); text-decoration: line-through}
+.sct .sct_img img {border: 1px solid var(--md-sys-color-outline-variant); border-radius: var(--md-sys-shape-corner-extra-small)}
+
+/* 사이드 인기상품 : 좁은 영역이므로 글자 크기 축소 */
+#side_pd .sct_txt {font-size: 15px !important; line-height: 1.4}
+#side_pd .sct_cost {font-size: 17px !important}
+#side_pd li {overflow: hidden; margin-bottom: 12px}
+
+/* 메인 섹션 제목 */
+.sct_wrap header h2, .sct_wrap h2 {font-size: 26px; font-weight: 800; color: var(--md-sys-color-on-surface); letter-spacing: -0.5px}
+.sct_wrap header h2 a {color: var(--md-sys-color-on-surface)}
+.sct_wrap header h2 a:hover {color: var(--md-sys-color-primary); text-decoration: none}
+#side_pd h2 {font-size: 20px; font-weight: 700}
+#side_pd h2 a {color: var(--md-sys-color-on-surface)}
+
+/* ===== 상품 상세 ===== */
+#sit_title {font-size: 28px; font-weight: 800; line-height: 1.4; color: var(--md-sys-color-on-surface)}
+#sit_desc {font-size: 17px; color: var(--md-sys-color-on-surface-variant)}
+#sit_ov th, #sit_ov td {font-size: 17px; padding: 10px 8px}
+.tbl_frm01 th, .tbl_frm01 td {font-size: 16px}
+#sit_tot_price {font-size: 24px; font-weight: 800; color: var(--md-sys-color-primary)}
+
+/* ===== 버튼 : 크고 누르기 쉽게, M3 알약형 ===== */
+.btn_submit, .btn01, .btn02,
+button.btn_submit, a.btn01, a.btn02 {
+    min-height: 50px; font-size: 18px !important; font-weight: 700;
+    border-radius: var(--md-sys-shape-corner-full); padding: 12px 24px;
+}
+.btn_submit {background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary)}
+.btn_submit:hover {background: var(--md-sys-color-on-primary-fixed-variant)}
+#sit_ov_btn .btn_submit, #sit_ov_btn button {
+    height: 60px; font-size: 20px !important; font-weight: 800;
+}
+
+/* ===== 게시판/폼 ===== */
+.tbl_head01 th, .tbl_head01 td {font-size: 16px; padding: 12px 8px}
+.frm_input {height: 48px; font-size: 17px; border-radius: var(--md-sys-shape-corner-extra-small)}
+
+/* ===== 하단 ===== */
+#ft {font-size: 15px; line-height: 1.8; background: var(--md-sys-color-surface-container-low); border-top: 1px solid var(--md-sys-color-outline-variant)}
+#ft_company, #ft .ft_info {font-size: 15px; color: var(--md-sys-color-on-surface-variant)}
+
+/* ===== 사이드 정보 박스 : 금시세/고객센터/공지 (종로도매 구조 참조) ===== */
+.side_info_box {
+    margin-top: 20px; padding: 18px; background: var(--md-sys-color-surface-container-lowest);
+    border: 1px solid var(--md-sys-color-outline-variant); border-radius: var(--md-sys-shape-corner-medium);
+}
+.side_info_box h2 {font-size: 19px; font-weight: 800; color: var(--md-sys-color-on-surface); margin-bottom: 12px}
+.side_info_box h2 a {color: var(--md-sys-color-on-surface); text-decoration: none}
+.side_info_box h2 .bx, .side_info_box h2 .bxs {color: var(--md-sys-color-primary); font-size: 21px}
+#side_gold table {width: 100%; border-collapse: collapse}
+#side_gold th {text-align: left; font-size: 15px; font-weight: 500; color: var(--md-sys-color-on-surface-variant); padding: 7px 0; border-bottom: 1px solid var(--md-sys-color-outline-variant)}
+#side_gold td {text-align: right; font-size: 16px; font-weight: 700; color: var(--md-sys-color-primary); padding: 7px 0; border-bottom: 1px solid var(--md-sys-color-outline-variant)}
+#side_gold .gold_date {margin-top: 10px; font-size: 13px; color: var(--md-sys-color-on-surface-variant)}
+#side_cs .cs_tel {display: block; font-size: 26px; font-weight: 800; color: var(--md-sys-color-on-surface); letter-spacing: -0.5px; margin-bottom: 8px}
+#side_cs .cs_time {font-size: 15px; color: var(--md-sys-color-on-surface-variant); line-height: 1.7; margin-bottom: 14px}
+#side_cs .cs_btn {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    height: 48px; background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary) !important; font-size: 17px; font-weight: 700;
+    border-radius: var(--md-sys-shape-corner-full); text-decoration: none !important;
+}
+#side_cs .cs_btn:hover {background: var(--md-sys-color-on-primary-fixed-variant)}
+#side_notice .lt_wr {margin: 0; padding: 0; border: 0; width: auto; float: none}
+#side_notice .lt_title {display: none}
+#side_notice ul {margin: 0; padding: 0}
+#side_notice li {font-size: 15px; line-height: 1.5; padding: 6px 0; border-bottom: 1px dotted var(--md-sys-color-outline-variant); list-style: none}
+#side_notice li a {color: var(--md-sys-color-on-surface-variant)}
+
+/* ===== 사이드 퀵메뉴 ===== */
+#quick .btn_sm {font-size: 14px}
+#quick .qk_tit {font-size: 13px}
+
+/* 항목이 늘어도 세로 중앙을 유지하도록 고정 오프셋 대신 transform 사용 */
+#quick {margin-top: 0 !important; transform: translateY(-50%)}
+
+/* 고객 메뉴 직접 링크 (상단 유틸에서 이동) */
+#quick .qk_divider {height: 1px; margin: 6px 10px; background: var(--md-sys-color-outline-variant)}
+#quick .qk_link a {
+    display: flex; align-items: center; justify-content: center;
+    width: 50px; height: 48px; background: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-primary);
+    font-size: 21px; text-decoration: none !important;
+}
+#quick .qk_link a:hover, #quick .qk_link a:focus {color: var(--md-sys-color-on-primary-fixed-variant); background: var(--md-sys-color-surface-container)}
+#quick .qk_link .qk_tit {
+    display: none; position: absolute; top: 8px; right: 60px; white-space: pre;
+    padding: 0 15px; line-height: 30px; background: var(--md-sys-color-inverse-surface); color: var(--md-sys-color-inverse-on-surface);
+    font-size: 13px; border-radius: var(--md-sys-shape-corner-extra-small);
+}
+#quick .qk_link:hover .qk_tit {display: block}
+
+/* 사이드 바 접기/펼치기 토글 */
+#side_menu {transition: transform .3s ease}
+#side_menu.sm_closed {transform: translateX(100%); box-shadow: none}
+#side_toggle {
+    position: absolute; left: -36px; top: 50%; transform: translateY(-50%);
+    width: 36px; padding: 14px 0; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    background: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-primary);
+    border: 1px solid var(--md-sys-color-outline-variant); border-right: 0;
+    border-radius: var(--md-sys-shape-corner-small) 0 0 var(--md-sys-shape-corner-small);
+    box-shadow: -2px 0 6px rgba(0,0,0,.07);
+}
+#side_toggle span {writing-mode: vertical-rl; font-size: 14px; font-weight: 700; letter-spacing: 2px}
+#side_toggle .bx {font-size: 18px}
+#side_toggle:hover, #side_toggle:focus {color: var(--md-sys-color-on-primary-fixed-variant)}
+@media (prefers-reduced-motion: reduce) {
+    #side_menu {transition: none}
+}
+
+/* ===== 히어로 배너 (그누위즈 데모 구조 참조) ===== */
+#daitda_hero {margin: 0 0 40px; border-radius: var(--md-sys-shape-corner-medium); overflow: hidden}
+#daitda_hero .hero_slide {
+    display: block; height: 380px; background-size: cover; background-position: center;
+    position: relative; text-decoration: none !important;
+}
+#daitda_hero .hero_slide::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(20,16,10,.72) 0%, rgba(20,16,10,.35) 55%, rgba(20,16,10,.05) 100%);
+}
+#daitda_hero .hero_txt {
+    position: absolute; left: 56px; top: 50%; transform: translateY(-50%); z-index: 1; color: #fff;
+}
+#daitda_hero .hero_txt em {
+    display: inline-block; font-style: normal; font-size: 16px; font-weight: 700;
+    letter-spacing: 3px; color: var(--md-sys-color-primary-fixed-dim); margin-bottom: 14px;
+}
+#daitda_hero .hero_txt strong {
+    display: block; font-size: 42px; font-weight: 800; line-height: 1.3;
+    letter-spacing: -1px; margin-bottom: 14px; text-shadow: 0 2px 10px rgba(0,0,0,.35);
+}
+#daitda_hero .hero_txt span {display: block; font-size: 19px; color: var(--md-sys-color-inverse-on-surface); margin-bottom: 26px}
+#daitda_hero .hero_btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); font-size: 18px; font-weight: 700;
+    padding: 14px 26px; border-radius: var(--md-sys-shape-corner-full);
+}
+#daitda_hero .hero_slide:hover .hero_btn {background: var(--md-sys-color-on-primary-fixed-variant)}
+#daitda_hero .owl-nav button.owl-prev,
+#daitda_hero .owl-nav button.owl-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 52px; height: 52px; border-radius: 50%; background: rgba(255,255,255,.85) !important;
+    color: var(--md-sys-color-on-surface); font-size: 30px; line-height: 1;
+}
+#daitda_hero .owl-nav button.owl-prev {left: 16px}
+#daitda_hero .owl-nav button.owl-next {right: 16px}
+#daitda_hero .owl-dots {position: absolute; left: 0; right: 0; bottom: 14px; text-align: center}
+#daitda_hero .owl-dots .owl-dot span {width: 12px; height: 12px; margin: 0 5px; background: rgba(255,255,255,.5)}
+#daitda_hero .owl-dots .owl-dot.active span {background: var(--md-sys-color-primary-fixed-dim)}
+
+/* ===== 인기 키워드 (그누위즈 데모 구조 참조) ===== */
+#daitda_keyword {
+    margin: 0 0 46px; padding: 26px 30px;
+    background: var(--md-sys-color-surface-container-low); border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-sys-shape-corner-medium);
+}
+#daitda_keyword h2 {font-size: 24px; font-weight: 800; color: var(--md-sys-color-on-surface); margin-bottom: 4px}
+#daitda_keyword .sec_desc {margin-bottom: 16px}
+.keyword_chips {display: flex; flex-wrap: wrap; gap: 10px}
+.keyword_chips a {
+    display: inline-block; padding: 11px 22px; border-radius: var(--md-sys-shape-corner-full);
+    background: var(--md-sys-color-surface-container-lowest); border: 2px solid var(--md-sys-color-outline-variant); color: var(--md-sys-color-primary);
+    font-size: 17px; font-weight: 700; text-decoration: none !important;
+}
+.keyword_chips a:hover, .keyword_chips a:focus {background: var(--md-sys-color-primary); border-color: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary)}
+
+/* ===== 상품 상세 : 귀금속/스톤 색상 미리보기 ===== */
+#daitda_metal {
+    clear: both; float: right; width: 460px; box-sizing: border-box;
+    margin: 18px 0 10px; padding: 18px; background: var(--md-sys-color-surface-container-low);
+    border: 1px solid var(--md-sys-color-outline-variant); border-radius: var(--md-sys-shape-corner-medium);
+}
+#daitda_metal h3 {font-size: 18px; font-weight: 800; color: var(--md-sys-color-on-surface); margin: 14px 0 10px}
+#daitda_metal h3:first-child {margin-top: 0}
+#daitda_metal h3 .bx, #daitda_metal h3 .bxs {color: var(--md-sys-color-primary); font-size: 20px}
+#daitda_metal h3 small {font-size: 14px; font-weight: 400; color: var(--md-sys-color-on-surface-variant)}
+.metal_swatch {display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0}
+.metal_swatch li {margin: 0}
+.metal_swatch button {
+    display: inline-flex; align-items: center; gap: 6px; min-height: 40px;
+    padding: 8px 12px; border: 2px solid var(--md-sys-color-outline-variant); border-radius: var(--md-sys-shape-corner-full);
+    background: var(--md-sys-color-surface-container-lowest); font-size: 15px; font-weight: 500;
+    color: var(--md-sys-color-on-surface-variant); cursor: pointer;
+}
+.metal_swatch button:hover {border-color: var(--md-sys-color-primary-container)}
+.metal_swatch button.on {border-color: var(--md-sys-color-primary); background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); font-weight: 700}
+.metal_swatch .chip {
+    display: inline-block; width: 22px; height: 22px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,.15); flex: none;
+}
+.chip_origin {background: repeating-conic-gradient(#eee 0 25%, #fff 0 50%); background-size: 8px 8px}
+.chip_yellow {background: linear-gradient(135deg,#f7e08b,#d4a017)}
+.chip_white {background: linear-gradient(135deg,#f4f4f2,#c9c9c4)}
+.chip_rose {background: linear-gradient(135deg,#f4c6b8,#d98d76)}
+.chip_platinum {background: linear-gradient(135deg,#e8eaec,#a9adb3)}
+.chip_puresilver {background: linear-gradient(135deg,#fdfdfd,#cfd2d6)}
+.chip_sterling {background: linear-gradient(135deg,#eef0f2,#b3b8bf)}
+.chip_britannia {background: linear-gradient(135deg,#f6f6f3,#c4c6c2)}
+.chip_coin {background: linear-gradient(135deg,#dfdcd4,#a49f92)}
+#sit_pvi_big img {transition: filter .35s}
+#daitda_tint {
+    position: absolute; inset: 0; pointer-events: none;
+    mix-blend-mode: color; opacity: 0; transition: opacity .35s; z-index: 2;
+}
+
+/* ===== 메인 섹션 헤더 (아이콘 + 설명) ===== */
+.sct_wrap {margin-bottom: 46px}
+.sct_wrap header {margin-bottom: 6px}
+.sec_emoji {font-size: 24px; color: var(--md-sys-color-primary)}
+.sec_desc {font-size: 15px; color: var(--md-sys-color-on-surface-variant); margin: 2px 0 14px}
+
+/* ===== 그누보드 기본 상품 스킨 덮어쓰기 : 글자 대비 4.5:1 (공통 디자인 규칙 3장) =====
+   기본 스킨의 설명·정가 회색(3.2~3.8:1)과 흰 글자 상품 배지(1.7~4.4:1)가 기준에 못 미쳐 토큰 색으로 바꾼다 */
+#wrapper .sct_basic, #wrapper .sct_dict {color: var(--md-sys-color-on-surface-variant)}
+#wrapper .shop_icon {font-weight: 700}
+#wrapper .shop_icon_1 {background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary)}                     /* 히트 */
+#wrapper .shop_icon_2 {background: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container)} /* 추천 */
+#wrapper .shop_icon_3 {background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container)} /* 최신 */
+#wrapper .shop_icon_4 {background: var(--md-sys-color-primary-fixed); color: var(--md-sys-color-on-primary-fixed)}         /* 인기 */
+#wrapper .shop_icon_5 {background: var(--md-sys-color-error); color: var(--md-sys-color-on-error)}                         /* 할인 */
+
+/* 하단은 밝은 바탕이라 기본 테마의 흰 글자 링크를 어두운 글자로 (대비 4.5:1) */
+#ft, #ft * {color: var(--md-sys-color-on-surface) !important}
+/* 사이드 공지 최신글 스킨의 날짜·더보기 */
+#side_notice .lt_date {color: var(--md-sys-color-on-surface-variant)}
+#side_notice .lt_more {color: var(--md-sys-color-primary)}

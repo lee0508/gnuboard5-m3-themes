@@ -1,0 +1,90 @@
+/* 다있다 주얼리 M3 디자인 토큰 — 색·글꼴·글자 크기·모서리를 한곳에서 정한다 (공통 디자인 규칙 10장, 2026-11-01)
+   색: 대표색 #b08d57(골드) 을 Material Color Utilities 0.3.0 SchemeFidelity(라이트)로 만든 값. 이름은 M3 토큰 이름 그대로 쓴다.
+   대표색 자체는 primary-container 에 그대로 남는다. 테마 CSS 는 hex 대신 var(--md-sys-*) 만 쓴다. */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('fonts/PretendardVariable.woff2') format('woff2-variations');
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --md-ref-typeface-brand: 'Pretendard', -apple-system, 'Malgun Gothic', sans-serif;
+  --md-ref-typeface-plain: var(--md-ref-typeface-brand);
+
+  --md-sys-color-primary: #775928;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #b08d57;
+  --md-sys-color-on-primary-container: #3d2700;
+  --md-sys-color-primary-fixed: #ffdeae;
+  --md-sys-color-primary-fixed-dim: #e8c086;
+  --md-sys-color-on-primary-fixed: #281800;
+  --md-sys-color-on-primary-fixed-variant: #5d4213;
+  --md-sys-color-secondary: #6c5c45;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #f3dcbf;
+  --md-sys-color-on-secondary-container: #706049;
+  --md-sys-color-tertiary: #496080;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #7d94b7;
+  --md-sys-color-on-tertiary-container: #132c4a;
+  --md-sys-color-tertiary-fixed: #d4e3ff;
+  --md-sys-color-tertiary-fixed-dim: #b1c8ed;
+  --md-sys-color-on-tertiary-fixed: #001c39;
+  --md-sys-color-on-tertiary-fixed-variant: #314867;
+  --md-sys-color-error: #ba1a1a;
+  --md-sys-color-on-error: #ffffff;
+  --md-sys-color-error-container: #ffdad6;
+  --md-sys-color-on-error-container: #93000a;
+  --md-sys-color-background: #fff8f3;
+  --md-sys-color-on-background: #1e1b17;
+  --md-sys-color-surface: #fff8f3;
+  --md-sys-color-on-surface: #1e1b17;
+  --md-sys-color-surface-variant: #eee0d1;
+  --md-sys-color-on-surface-variant: #4e453a;
+  --md-sys-color-surface-dim: #e1d9d2;
+  --md-sys-color-surface-bright: #fff8f3;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #fbf2eb;
+  --md-sys-color-surface-container: #f5ece5;
+  --md-sys-color-surface-container-high: #efe7e0;
+  --md-sys-color-surface-container-highest: #e9e1da;
+  --md-sys-color-outline: #807569;
+  --md-sys-color-outline-variant: #d1c5b6;
+  --md-sys-color-inverse-surface: #34302b;
+  --md-sys-color-inverse-on-surface: #f8efe8;
+  --md-sys-color-inverse-primary: #e8c086;
+  --md-sys-color-scrim: #000000;
+  --md-sys-color-shadow: #000000;
+
+  /* M3 타입 스케일 (px). 이 테마는 50~60대 고객 기준이라 본문은 Body L(16px) 이상을 쓴다. 최소 글자 12px */
+  --md-sys-typescale-display-small-size: 36px;   --md-sys-typescale-display-small-line-height: 44px;
+  --md-sys-typescale-headline-large-size: 32px;  --md-sys-typescale-headline-large-line-height: 40px;
+  --md-sys-typescale-headline-medium-size: 28px; --md-sys-typescale-headline-medium-line-height: 36px;
+  --md-sys-typescale-headline-small-size: 24px;  --md-sys-typescale-headline-small-line-height: 32px;
+  --md-sys-typescale-title-large-size: 22px;     --md-sys-typescale-title-large-line-height: 28px;
+  --md-sys-typescale-title-medium-size: 16px;    --md-sys-typescale-title-medium-line-height: 24px;
+  --md-sys-typescale-title-small-size: 14px;     --md-sys-typescale-title-small-line-height: 20px;
+  --md-sys-typescale-body-large-size: 16px;      --md-sys-typescale-body-large-line-height: 24px;
+  --md-sys-typescale-body-medium-size: 14px;     --md-sys-typescale-body-medium-line-height: 20px;
+  --md-sys-typescale-body-small-size: 12px;      --md-sys-typescale-body-small-line-height: 16px;
+  --md-sys-typescale-label-large-size: 14px;     --md-sys-typescale-label-large-weight: 500;
+  --md-sys-typescale-label-medium-size: 12px;    --md-sys-typescale-label-medium-weight: 500;
+
+  /* M3 모서리 단계 */
+  --md-sys-shape-corner-none: 0;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* 상태 레이어 투명도 (올림·포커스·누름) */
+  --md-sys-state-hover-opacity: .08;
+  --md-sys-state-focus-opacity: .10;
+  --md-sys-state-pressed-opacity: .10;
+}
+
+/* 키보드 포커스는 항상 보이게 */
+:focus-visible {outline: 3px solid var(--md-sys-color-primary); outline-offset: 2px}
