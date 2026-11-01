@@ -73,4 +73,4 @@ themes/<테마>/css/
 - 함께 담은 글꼴·아이콘: [`NOTICE.md`](NOTICE.md) (Pretendard — SIL OFL 1.1, Boxicons — MIT)
 - Material Design 은 Google 의 디자인 가이드입니다. 이 저장소는 Google 과 관계가 없습니다.
 
-만든 곳: 더올데이즈 (https://thealldays.kr)
+만든 곳: bizaccount (https://bizaccount.co.kr)
