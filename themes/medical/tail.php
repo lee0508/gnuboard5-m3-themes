@@ -23,7 +23,7 @@ if (!defined('_GNUBOARD_')) exit;
 <button class="top-button" type="button" aria-label="페이지 상단으로"><i class="bx bx-up-arrow-alt"></i></button>
 <?php
 // 그누보드의 스크립트 큐를 사용해 jQuery·공통 스크립트 뒤에 테마 상호작용 스크립트를 적재합니다.
-add_javascript('<script src="'.G5_THEME_JS_URL.'/medical.js?ver='.G5_JS_VER.'"></script>', 20);
+add_javascript('<script src="'.G5_THEME_JS_URL.'/medical.js"></script>', 20);
 if ($config['cf_analytics']) echo $config['cf_analytics'];
 include_once(G5_THEME_PATH.'/tail.sub.php');
 ?>

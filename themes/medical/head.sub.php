@@ -53,7 +53,7 @@ if($config['cf_add_meta'])
 <?php
 $shop_css = '';
 if (defined('_SHOP_')) $shop_css = '_shop';
-echo '<link rel="stylesheet" href="'.run_replace('head_css_url', G5_THEME_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').$shop_css.'.css?ver='.G5_CSS_VER, G5_THEME_URL).'">'.PHP_EOL;
+echo '<link rel="stylesheet" href="'.get_versioned_asset_url(run_replace('head_css_url', G5_THEME_CSS_URL.'/'.(G5_IS_MOBILE?'mobile':'default').$shop_css.'.css', G5_THEME_URL)).'">'.PHP_EOL;
 // M3 토큰(Pretendard 포함)과 로컬 Boxicons v3. 외부 CDN 없음 (공통 디자인 규칙 10장)
 echo '<link rel="stylesheet" href="'.G5_THEME_CSS_URL.'/m3-tokens.css?ver=2611012">'.PHP_EOL;
 echo '<link rel="stylesheet" href="'.G5_THEME_CSS_URL.'/icons/boxicons-local.css?ver=2611012">'.PHP_EOL;
@@ -85,13 +85,13 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery-1.12.4.min.js"></script>', 0);
 add_javascript('<script src="'.G5_JS_URL.'/jquery-migrate-1.4.1.min.js"></script>', 0);
 if (defined('_SHOP_')) {
     if(!G5_IS_MOBILE) {
-        add_javascript('<script src="'.G5_JS_URL.'/jquery.shop.menu.js?ver='.G5_JS_VER.'"></script>', 0);
+        add_javascript('<script src="'.G5_JS_URL.'/jquery.shop.menu.js"></script>', 0);
     }
 } else {
-    add_javascript('<script src="'.G5_JS_URL.'/jquery.menu.js?ver='.G5_JS_VER.'"></script>', 0);
+    add_javascript('<script src="'.G5_JS_URL.'/jquery.menu.js"></script>', 0);
 }
-add_javascript('<script src="'.G5_JS_URL.'/common.js?ver='.G5_JS_VER.'"></script>', 0);
-add_javascript('<script src="'.G5_JS_URL.'/wrest.js?ver='.G5_JS_VER.'"></script>', 0);
+add_javascript('<script src="'.G5_JS_URL.'/common.js"></script>', 0);
+add_javascript('<script src="'.G5_JS_URL.'/wrest.js"></script>', 0);
 add_javascript('<script src="'.G5_JS_URL.'/placeholders.min.js"></script>', 0);
 add_stylesheet('<link rel="stylesheet" href="'.G5_JS_URL.'/font-awesome/css/font-awesome.min.css">', 0);
 

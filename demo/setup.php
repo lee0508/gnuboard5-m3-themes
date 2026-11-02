@@ -10,8 +10,8 @@
 // 필요: PHP 8.0 이상(mysqli·gd 확장), MySQL 또는 MariaDB, git
 
 const GNUBOARD_REPO   = 'https://github.com/gnuboard/gnuboard5.git';
-// 테마를 만들고 시험한 그누보드 5.6.35 / 영카트 5.4.5.5.1 커밋. 다른 버전에서는 화면이 다를 수 있어 고정한다.
-const GNUBOARD_COMMIT = '375a8336e8a9f136d1515a9ffb0c44dc268d9881';
+// 테마를 시험한 그누보드 5.6.45(보안 패치 반영) / 영카트 5.4.5.5.1 커밋. 다른 버전에서는 화면이 다를 수 있어 고정한다.
+const GNUBOARD_COMMIT = '0fcd3b4175a97683bc302a52b8ab1b224038ee54';
 const THEMES          = ['dapanda', 'jewelry', 'medical'];
 const SITE_TITLES     = ['dapanda' => '다판다', 'jewelry' => '다있다 주얼리', 'medical' => 'ONCARE 의원'];
 
@@ -108,7 +108,9 @@ function installGnuboard(string $site, array $db, string $adminPass): void {
     // 설치 파일은 웹 화면용이라 header() 를 부른다. 명령줄에서는 의미가 없으므로 그 경고만 숨긴다
     set_error_handler(fn($no, $msg) => str_contains($msg, 'headers already sent'), E_WARNING);
     ob_start();
-    (function () { include 'install_db.php'; })();
+    // 5.6.37+ 설치는 마이그레이션 이력을 sql_query() 로 남기는데, sql_query() 는 전역 $g5['connect_db'] 를 쓴다.
+    // 함수 안에서 include 하면 install_db.php 가 만든 $g5 가 지역 변수가 되므로 전역으로 묶는다
+    (function () { global $g5, $g5_debug; include 'install_db.php'; })();
     $html = ob_get_clean();
     restore_error_handler();
     chdir($cwd);
